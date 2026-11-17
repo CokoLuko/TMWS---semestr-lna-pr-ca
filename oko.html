@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMWS - semestrálna práca</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <main>
+        <div id="oko" style="
+            display: flex;
+            position: relative;
+            width: 400px;
+            height: 300px;
+
+            border: 1px solid;
+            ">
+            <div id="spojka" style="
+                width: 100px;
+                height: 100px;
+                background: radial-gradient(circle, #888 0%, #888 50%, #faa0 95%);
+                border-radius: 100%;
+                position: absolute;
+                top: 50%;
+                left: calc(50% - 80px);
+                transform: translate(-50%, -50%) scaleX(50%);
+                z-index: 10;
+                ">
+            </div>
+            <div id="zornicka" style="
+                width: 50px;
+                height: 50px;
+                background-color: #333;
+                border-radius: 100%;
+                position: absolute;
+                top: 50%;
+                left: calc(50% - 90px);
+                transform: translate(-50%, -50%) scaleX(50%);
+                z-index: 10;
+                ">
+            </div>
+            <div id="ocna-gula" style="
+                width: 200px;
+                height: 200px;
+                border-radius: 100%;
+                background: radial-gradient(circle, #fff 0%, #faa 100%);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: 3px #f66 solid;
+                ">
+            </div>
+            <div id="zlta-skvrna" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                background: radial-gradient(circle, #ff6 0%, #0000 90%);
+                position: absolute;
+                top: 50%;
+                left: calc(50% + 90px);
+                transform: translate(-50%, -50%) scaleX(50%);
+                ">
+            </div>
+            <div id="sietnica" style="
+                width: 195px;
+                height: 195px;
+                border-radius: 100%;
+                border-right: 5px dashed #fff;
+                position: absolute;
+                top: 50%;
+                left: calc(50%);
+                transform: translate(-50%, -50%);
+                ">
+            </div>
+            <div id="os-oka" style="
+                position: absolute;
+                width: 100%;
+                height: 50%;
+                background: #0000;
+                border-bottom: 2px dashed #ff6;
+            ">
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

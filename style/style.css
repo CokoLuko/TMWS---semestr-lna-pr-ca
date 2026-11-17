@@ -1,0 +1,556 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Playwrite+FR+Trad:wght@100..400&display=swap');
+
+:root {
+    --primarna-farba: #EC5132;
+    --sekundarna-farba: #32EC51;
+    --tercialna-farba: #5132EC;
+    --papier-farba: #FDEBE8;
+    --siva-farba: #888;
+    --cierna-farba: #222;
+    --shadow: #2225;
+    --zaoblenie: 1rem;
+    --transition-cas: 0.6s;
+    color-scheme: light dark;
+}
+
+[data-theme="dark"] {
+    --primarna-farba: #ACB;
+    --sekundarna-farba: #890;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 2.4rem;
+    font-size: 2rem;
+    
+    font-family: "Baloo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--papier-farba);
+    color: var(--cierna-farba);
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.pisane {
+    font-family: "Playwrite FR Trad", cursive;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+header h1 {
+    text-transform: uppercase;
+    font-size: 3rem;
+    letter-spacing: .2rem;
+    transition: var(--transition-cas);
+    padding: .75rem;
+    border: solid transparent 0.2rem;
+}
+
+header h1:hover {
+    color: var(--primarna-farba);
+    border-bottom: solid var(--tercialna-farba) 0.2rem;
+    position: relative;
+}
+
+header h1::after, header h1::before {
+    transition: var(--transition-cas);
+    background-color: transparent;
+    width: 1rem;
+    aspect-ratio: 1/1;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: var(--zaoblenie);
+    animation: blikanie 1s infinite;
+}
+
+header h1::before {
+    animation: none
+}
+
+header h1:hover::after, header h1:hover::before {
+    background-color: var(--sekundarna-farba);
+}
+
+@keyframes blikanie {
+    0% {opacity: 1; scale: 1;}
+    50% {opacity: 1; scale: 1;}
+    100% {opacity: 0; scale: 2;}
+    
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header li {
+    display: inline-block;
+    padding: 0;
+}
+
+header li a {
+    padding: .75rem 1.5rem;
+    text-decoration: none;
+    border-radius: var(--zaoblenie);
+    text-transform: uppercase;
+}
+
+header a.button {
+    background-color: var(--sekundarna-farba);
+    padding: .75rem 1.5rem;
+    text-decoration: none;
+    border-radius: var(--zaoblenie);
+    text-transform: uppercase;
+}
+
+main {
+    width: 100vw;
+    height: 100%;
+}
+
+section, .section {
+    padding: 3rem 2rem;
+}
+
+section h2, .section h2 {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    letter-spacing: .2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#dnes-hrame div div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+#dnes-hrame .karta {
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+    padding: 1rem;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform var(--transition-cas);
+}
+
+#dnes-hrame .karta:hover {
+    transform: rotateY(180deg);
+}
+
+#dnes-hrame .karta .pred,
+#dnes-hrame .karta .zad {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: var(--sekundarna-farba);
+    border-radius: var(--zaoblenie);
+} 
+
+#dnes-hrame .karta img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--zaoblenie);
+    object-fit: cover;
+    position: absolute;
+}
+
+#dnes-hrame .karta .pred div {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-image: linear-gradient(to bottom, transparent, var(--primarna-farba));
+}
+
+#dnes-hrame .karta .pred div h3 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    margin-top: auto;
+}
+
+#dnes-hrame .karta .zad {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transform: rotateY(180deg);
+    color: var(--primarna-farba);
+    padding: 1rem;
+}
+
+#dnes-hrame .karta .zad a.button {
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--primarna-farba);
+    border-radius: var(--zaoblenie);
+    transition: var(--transition-cas);
+    color: var(--sekundarna-farba);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#dnes-hrame .karta .zad a.button:hover {
+    background-color: var(--siva-farba);
+}
+
+#dnes-hrame .karta .zad .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+#dnes-hrame .karta .zad .info p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    overflow: hidden;
+}
+
+#dnes-hrame .karta .zad .info h3 {
+    font-size: 4rem;
+    text-align: center;
+    margin: 1rem 0;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+#dnes-hrame .karta .zad .info .detail {
+    text-align: center;
+}
+
+#dnes-hrame .karta .zad .info .detail span {
+    background-color: var(--primarna-farba);
+    border-radius: var(--zaoblenie);
+    color: var(--sekundarna-farba);
+    padding: 0.3rem 0.5rem;
+}
+
+#delenie div.mriezka {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+#delenie div.mriezka div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--primarna-farba);
+    aspect-ratio: 1/1;
+    border-radius: calc(var(--zaoblenie) * 1) calc(var(--zaoblenie) * 3) calc(var(--zaoblenie) * 3) calc(var(--zaoblenie) * 1);
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 0.5rem 1rem var(--shadow);
+    outline: solid var(--primarna-farba) 0.6rem;
+    border: dashed var(--cierna-farba) 0.2rem;
+    border-left: none;
+    transition: var(--transition-cas);
+}
+
+#delenie div.mriezka div:hover, #delenie div.mriezka div.pod:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem var(--shadow);
+}
+
+#delenie div.mriezka div.pod {
+    transform: scale(0.95);
+    border: solid 1rem var(--primarna-farba);
+
+    outline: none;
+    border-left: none;
+}
+
+#delenie div.mriezka div.list {
+    border: 0.2rem solid var(--cierna-farba);
+    background-color: var(--papier-farba);
+    border-radius: 0 calc(var(--zaoblenie) * 3) 0 calc(var(--zaoblenie) * 3);
+    overflow: hidden;
+    position: relative;
+}
+
+#delenie div.mriezka div.list::after {
+    position: absolute;
+    width: 150%;
+    aspect-ratio: 1/1;
+    /* text-align: justify; */
+    content: "Pavol, služobník Krista Ježiša, povolaný za apoštola, vybraný hlásať Božie evanjelium, ktoré Boh vopred prisľúbil vo Svätých písmach a skrze svojich prorokov o svojom Synovi, ktorý podľa tela pochádza z Dávidovho rodu a podľa Ducha svätosti od vzkriesenia z mŕtvych je ustanovený v moci ako Boží Syn, o Ježišovi Kristovi, našom Pánovi. Skrze neho sme dostali milosť a apoštolský úrad, aby na slávu jeho mena poslušne uverili všetky národy; k nim patríte aj vy, povolaní Ježišom Kristom. Všetkým, čo sú v Ríme, Bohom milovaným, povolaným svätým: Milosť vám a pokoj od Boha, nášho Otca, i od Pána Ježiša Krista. Predovšetkým vzdávam vďaky svojmu Bohu skrze Ježiša Krista za vás všetkých, pretože sa vaša viera zvestuje po celom svete.9Veď Boh, ktorému z tej duše slúžim v evanjeliu jeho Syna, je mi svedkom, ako si na vás ustavične spomínam vo všetkých svojich modlitbách a prosím, či by sa mi raz predsa len nepodarilo prísť k vám, ak to bude Božia vôľa. Lebo túžim vidieť vás a dať vám nejaký duchovný dar na vašu posilu, to jest, aby sme sa navzájom potešili spoločnou vierou, vašou i mojou. Nechcem, bratia, aby ste nevedeli, že som už veľa ráz pomýšľal ísť k vám, aby som aj u vás mal nejaké ovocie, tak ako u ostatných národov, – ale až doteraz sa mi v tom prekážalo. Som dlžníkom Grékov i barbarov, múdrych i nemúdrych. A tak pokiaľ ide o mňa, som pripravený hlásať evanjelium aj vám, čo ste v Ríme.";
+    opacity: 0.15;
+    font-family: "Playwrite FR Trad", cursive;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* #delenie div.mriezka div.pod:nth-child(n+7) {
+    border: solid .5rem var(--sekundarna-farba);
+} */
+
+footer {
+    background-image: linear-gradient(to bottom, transparent, var(--tercialna-farba));
+}
+
+footer .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li a {
+    text-decoration: none;
+}
+
+footer .footer-logo {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    font-weight: bold;
+}
+
+footer .prava {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.kniha {
+    width: 100%;
+    aspect-ratio: 4/2;
+    background-color: var(--primarna-farba);
+    border-radius: calc(var(--zaoblenie) * 3);
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    box-shadow: 0 1rem 4rem var(--shadow);
+    color: var(--cierna-farba);
+    transition: var(--transition-cas);
+}
+
+.kniha:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2rem 8rem var(--shadow);
+}
+
+.kniha div.strana {
+    background-color: var(--papier-farba);
+    padding: 1.5rem;
+    text-align: justify;
+}
+
+.kniha div.strana:nth-child(2n+1) {
+    border-radius: calc(var(--zaoblenie) * 3) calc(var(--zaoblenie) * 1) calc(var(--zaoblenie) * 1) calc(var(--zaoblenie) * 3);
+    box-shadow: -0.4rem 0 1rem var(--shadow);
+}
+
+.kniha div.strana:nth-child(2n) {
+    border-radius: calc(var(--zaoblenie) * 1) calc(var(--zaoblenie) * 3) calc(var(--zaoblenie) * 3) calc(var(--zaoblenie) * 1);
+    box-shadow: 0.4rem 0 1rem var(--shadow);
+}
+
+.kniha div.Bozie-slovo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.kniha div.Bozie-slovo .hlavicka {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.kniha .strana:nth-child(2n) div.Bozie-slovo .hlavicka {
+    text-align: left;
+}
+
+.kniha .strana:nth-child(2n+1) div.Bozie-slovo .hlavicka {
+    text-align: right;
+}
+
+.kniha .Bozie-slovo .text .nadpis {
+    font-weight: bold;
+    /* display: block; */
+    padding-left: 1rem;
+}
+
+.kniha .Bozie-slovo .text .vers {
+    transition: var(--transition-cas);
+    border-radius: var(--zaoblenie);
+}
+
+.kniha .Bozie-slovo .text .vers:hover {
+    text-decoration: underline dotted;
+}
+
+.kniha .Bozie-slovo .text .novy-riadok::before {
+    content: "\A";
+    white-space: pre;
+}
+
+.kniha .Bozie-slovo .text .cislo {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    vertical-align: top;
+    font-weight: bold;
+}
+
+#welcome {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+#welcome .zavreta-kniha {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 4/5;
+    background-color: var(--primarna-farba);
+    border-radius: calc(var(--zaoblenie) * 1) calc(var(--zaoblenie) * 3) calc(var(--zaoblenie) * 3) calc(var(--zaoblenie) * 1);
+    box-shadow: 0 0.5rem 1rem var(--shadow);
+    padding: 12rem 3rem;
+    outline: solid var(--primarna-farba) 0.6rem;
+    border: dashed var(--cierna-farba) 0.2rem;
+    border-left: none;
+    transition: var(--transition-cas);
+}
+
+#welcome .zavreta-kniha:hover {
+    transform: scale(1.05) rotateX(10deg) rotateY(15deg) rotateZ(0deg);
+    box-shadow: 0 1rem 4rem var(--shadow);
+}
+
+#welcome .zavreta-kniha h2 {
+    font-size: 8rem;
+    text-align: center;
+}
+
+#welcome .zavreta-kniha h3 {
+    font-size: 2.3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#welcome .text {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+}
+
+#welcome .text h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.2;
+}
+
+#tabulka .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+@media (max-width: 1000px) {
+    #tabulka .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    #tabulka .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    #tabulka .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+#tabulka .container .prvok{
+    transition: calc(var(--transition-cas) * 0.5);
+}
+
+#tabulka .container .prvok:hover{
+    transform: scale(1.2);
+    box-shadow: 0 1rem 4rem var(--shadow);
+}
+
+
+
+/* UNIVERZÁLNE */
+
+.bg-primarna {
+    background-color: var(--primarna-farba) !important;
+}
+
+.bg-sekundarna {
+    background-color: var(--sekundarna-farba) !important;
+}
+
+.bg-tercialna {
+    background-color: var(--tercialna-farba) !important;
+}
