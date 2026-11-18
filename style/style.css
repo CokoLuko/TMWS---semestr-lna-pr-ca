@@ -368,7 +368,7 @@ footer .footer-logo {
 
 footer .prava {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 4rem;
 }
 
 .kniha {
@@ -537,6 +537,21 @@ footer .prava {
 #tabulka .container .prvok:hover{
     transform: scale(1.2);
     box-shadow: 0 1rem 4rem var(--shadow);
+}
+
+.citat {
+    padding: 6rem 1rem;
+}
+
+.citat q {
+    font-size: 3rem;
+    text-align: center;
+    display: block;
+}
+
+.citat p {
+    font-size: 2rem;
+    text-align: center;
 }
 
 
