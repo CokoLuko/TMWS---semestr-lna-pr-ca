@@ -105,13 +105,6 @@ header h1:hover::after, header h1:hover::before {
     background-color: var(--sekundarna-farba);
 }
 
-@keyframes blikanie {
-    0% {opacity: 1; scale: 1;}
-    50% {opacity: 1; scale: 1;}
-    100% {opacity: 0; scale: 2;}
-    
-}
-
 header ul {
     list-style-type: none;
 }
@@ -512,24 +505,6 @@ footer .prava {
     align-items: center;
 }
 
-@media (max-width: 1000px) {
-    #tabulka .container {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    #tabulka .container {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media (max-width: 640px) {
-    #tabulka .container {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-}
-
 #tabulka .container .prvok{
     transition: calc(var(--transition-cas) * 0.5);
 }
@@ -554,7 +529,35 @@ footer .prava {
     text-align: center;
 }
 
+/* INÉ VEĽKOSTI */
 
+@media (max-width: 1000px) {
+    #tabulka .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    #tabulka .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    #tabulka .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+/* ANIMÁCIE */
+
+@keyframes blikanie {
+    0% {opacity: 1; scale: 1;}
+    50% {opacity: 1; scale: 1;}
+    100% {opacity: 0; scale: 2;}
+    
+}
 
 /* UNIVERZÁLNE */
 

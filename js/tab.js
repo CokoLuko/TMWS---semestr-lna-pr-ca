@@ -89,5 +89,20 @@ for (let i = 0; i < knihy.length; i++) {
     knihyTab[i].appendChild(nazvy[i]);
     knihyTab[i].appendChild(kapitoly[i]);
 
+    const nedostupneKnihyIndexy = [16, 17, 24, 25, 29, 44, 45];
+
+    if (nedostupneKnihyIndexy.includes(parseInt(indexTab[i].textContent)-1)) {
+        knihyTab[i].style.cursor = "no-drop";
+        
+    } else {
+        knihyTab[i].style.cursor = "pointer";
+        knihyTab[i].addEventListener("mouseover", () => {console.log("Kniha -> " + nazvy[i].textContent)})
+        knihyTab[i].addEventListener("touch", () => {premiestnit(i+1)})
+    }
+
     BibleTab.appendChild(knihyTab[i]);
+
+    function premiestnit(kde) {
+        window.location.replace("./kniha.html?q=" + kde);
+    }
 }
